@@ -49,6 +49,20 @@
             <div class="content-header">
                 <h1 class="main-title">Discover What's <span class="highlight">Trending Worldwide</span></h1>
                 <p class="main-subtitle">Explore the most talked-about topics and stay ahead of the curve with insights that matter to people around the globe</p>
+                
+                <!-- 메인 방문자 카운터 -->
+                <div class="main-visitor-counter">
+                    <div class="counter-item">
+                        <span class="counter-icon">👥</span>
+                        <span class="counter-label">총 방문자</span>
+                        <span class="counter-number" id="mainVisitorCount">로딩중...</span>
+                    </div>
+                    <div class="counter-item">
+                        <span class="counter-icon">📊</span>
+                        <span class="counter-label">오늘 방문자</span>
+                        <span class="counter-number" id="todayVisitorCount">로딩중...</span>
+                    </div>
+                </div>
             </div>
             
             <!-- Topics Grid -->
@@ -79,18 +93,68 @@
 
     <script src="script.js"></script>
     
-    <!-- 간단한 방문자 카운터 스크립트 -->
+    <!-- 향상된 방문자 카운터 스크립트 -->
     <script>
-        // 로컬 스토리지를 사용한 간단한 방문자 카운터
-        function updateVisitorCount() {
-            let count = localStorage.getItem('visitorCount') || 0;
-            count = parseInt(count) + 1;
-            localStorage.setItem('visitorCount', count);
-            document.getElementById('visitorCount').textContent = count.toLocaleString();
+        // 방문자 카운터 관리
+        class VisitorCounter {
+            constructor() {
+                this.totalKey = 'totalVisitors';
+                this.todayKey = 'todayVisitors';
+                this.lastVisitKey = 'lastVisitDate';
+                this.init();
+            }
+            
+            init() {
+                this.updateCounts();
+                this.updateDisplay();
+            }
+            
+            updateCounts() {
+                // 총 방문자 수 증가
+                let totalCount = parseInt(localStorage.getItem(this.totalKey)) || 0;
+                totalCount++;
+                localStorage.setItem(this.totalKey, totalCount);
+                
+                // 오늘 방문자 수 업데이트
+                const today = new Date().toDateString();
+                const lastVisit = localStorage.getItem(this.lastVisitKey);
+                
+                if (lastVisit !== today) {
+                    // 새로운 날짜면 오늘 방문자 수 초기화
+                    localStorage.setItem(this.todayKey, '1');
+                    localStorage.setItem(this.lastVisitKey, today);
+                } else {
+                    // 같은 날짜면 오늘 방문자 수 증가
+                    let todayCount = parseInt(localStorage.getItem(this.todayKey)) || 0;
+                    todayCount++;
+                    localStorage.setItem(this.todayKey, todayCount);
+                }
+                
+                // footer 카운터도 업데이트
+                if (document.getElementById('visitorCount')) {
+                    document.getElementById('visitorCount').textContent = totalCount.toLocaleString();
+                }
+            }
+            
+            updateDisplay() {
+                const totalCount = localStorage.getItem(this.totalKey) || '0';
+                const todayCount = localStorage.getItem(this.todayKey) || '0';
+                
+                // 메인 카운터 업데이트
+                if (document.getElementById('mainVisitorCount')) {
+                    document.getElementById('mainVisitorCount').textContent = parseInt(totalCount).toLocaleString();
+                }
+                
+                if (document.getElementById('todayVisitorCount')) {
+                    document.getElementById('todayVisitorCount').textContent = parseInt(todayCount).toLocaleString();
+                }
+            }
         }
         
-        // 페이지 로드 시 방문자 수 업데이트
-        updateVisitorCount();
+        // 페이지 로드 시 방문자 카운터 초기화
+        document.addEventListener('DOMContentLoaded', () => {
+            new VisitorCounter();
+        });
     </script>
 </body>
 </html>
