@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Finance & Investing - Trend Hub</title>
+    <meta name="description" content="Master your finances with expert investment strategies, stock market insights, and personal finance management tips">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .page-header {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 80px 0 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/><circle cx="10" cy="60" r="0.5" fill="white" opacity="0.1"/><circle cx="90" cy="40" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .page-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .page-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .content-section {
+            padding: 60px 0;
+            background: #f8fafc;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .content-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 15px;
+        }
+        
+        .card-description {
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .card-link {
+            color: #059669;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s ease;
+        }
+        
+        .card-link:hover {
+            color: #047857;
+        }
+        
+        .inspiration-section {
+            background: white;
+            padding: 60px 0;
+        }
+        
+        .inspiration-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .inspiration-item {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        
+        .inspiration-item:hover {
+            background: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        
+        .inspiration-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+            margin: 0 auto 15px;
+        }
+        
+        .inspiration-title {
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 10px;
+        }
+        
+        .inspiration-description {
+            color: #64748b;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+        
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .page-subtitle {
+                font-size: 1rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 0 16px;
+            }
+            
+            .inspiration-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 15px;
+                padding: 0 16px;
+            }
+            
+            .back-button {
+                top: 15px;
+                left: 15px;
+                padding: 8px 16px;
+                font-size: 0.875rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Page Header -->
+    <header class="page-header">
+        <a href="../index.html" class="back-button">← Back to Home</a>
+        <h1 class="page-title">Personal Finance & Investing</h1>
+        <p class="page-subtitle">Master your finances with expert investment strategies, stock market insights, and personal finance management tips</p>
+    </header>
+
+    <!-- Main Content -->
+    <section class="content-section">
+        <div class="content-grid">
+            <div class="content-card">
+                <div class="card-icon">📈</div>
+                <h2 class="card-title">Stock Market</h2>
+                <p class="card-description">Learn about stock market fundamentals, technical analysis, and strategies for building a profitable investment portfolio.</p>
+                <a href="https://www.investopedia.com/" class="card-link" target="_blank">Start Investing →</a>
+            </div>
+            
+            <div class="content-card">
+                <div class="card-icon">🏠</div>
+                <h2 class="card-title">Real Estate</h2>
+                <p class="card-description">Discover real estate investment opportunities, property management strategies, and market analysis for profitable investments.</p>
+                <a href="https://www.zillow.com/" class="card-link" target="_blank">Explore Properties →</a>
+            </div>
+            
+            <div class="content-card">
+                <div class="card-icon">₿</div>
+                <h2 class="card-title">Cryptocurrency</h2>
+                <p class="card-description">Understand blockchain technology, crypto trading strategies, and digital asset investment opportunities.</p>
+                <a href="https://coinmarketcap.com/" class="card-link" target="_blank">Learn Crypto →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inspiration Section -->
+    <section class="inspiration-section">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2rem; margin-bottom: 40px; color: #1e293b;">Investment Categories</h2>
+            <div class="inspiration-grid">
+                <div class="inspiration-item">
+                    <div class="inspiration-icon">💼</div>
+                    <h3 class="inspiration-title">Portfolio</h3>
+                    <p class="inspiration-description">Build diversified investment portfolios</p>
+                </div>
+                
+                <div class="inspiration-item">
+                    <div class="inspiration-icon">📊</div>
+                    <h3 class="inspiration-title">Analysis</h3>
+                    <p class="inspiration-description">Technical and fundamental analysis</p>
+                </div>
+                
+                <div class="inspiration-item">
+                    <div class="inspiration-icon">💰</div>
+                    <h3 class="inspiration-title">Budgeting</h3>
+                    <p class="inspiration-description">Personal finance management</p>
+                </div>
+                
+                <div class="inspiration-item">
+                    <div class="inspiration-icon">🏦</div>
+                    <h3 class="inspiration-title">Banking</h3>
+                    <p class="inspiration-description">Modern banking solutions</p>
+                </div>
+                
+                <div class="inspiration-item">
+                    <div class="inspiration-icon">📱</div>
+                    <h3 class="inspiration-title">Fintech</h3>
+                    <p class="inspiration-description">Financial technology innovations</p>
+                </div>
+                
+                <div class="inspiration-item">
+                    <div class="inspiration-icon">🎯</div>
+                    <h3 class="inspiration-title">Planning</h3>
+                    <p class="inspiration-description">Financial goal setting</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <h3>Trend Hub</h3>
+                <p>Your gateway to understanding what matters to people worldwide</p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Trend Hub. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

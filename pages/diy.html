@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIY & Home Decor - Trend Hub</title>
+    <meta name="description" content="Discover creative DIY projects and home decoration ideas to transform your living space">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .page-header {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            padding: 80px 0 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/><circle cx="10" cy="60" r="0.5" fill="white" opacity="0.1"/><circle cx="90" cy="40" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .page-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .page-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .content-section {
+            padding: 60px 0;
+            background: #f8fafc;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .content-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 15px;
+        }
+        
+        .card-description {
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .card-link {
+            color: #d97706;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s ease;
+        }
+        
+        .card-link:hover {
+            color: #b45309;
+        }
+        
+        .inspiration-section {
+            background: white;
+            padding: 60px 0;
+        }
+        
+        .inspiration-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .inspiration-item {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        
+        .inspiration-item:hover {
+            background: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        
+        .inspiration-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+            margin: 0 auto 15px;
+        }
+        
+        .inspiration-title {
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 10px;
+        }
+        
+        .inspiration-description {
+            color: #64748b;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+        
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .page-subtitle {
+                font-size: 1rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 0 16px;
+            }
+            
+            .inspiration-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 15px;
+                padding: 0 16px;
+            }
+            
+            .back-button {
+                top: 15px;
+                left: 15px;
+                padding: 8px 16px;
+                font-size: 0.875rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Page Header -->
+    <header class="page-header">
+        <a href="../index.html" class="back-button">← Back to Home</a>
+        <h1 class="page-title">DIY & Home Decor</h1>
+        <p class="page-subtitle">Transform your living space with creative DIY projects and stunning home decoration ideas</p>
+    </header>
+
+    <!-- Main Content -->
+    <section class="content-section">
+        <div class="content-grid">
+            <div class="content-card">
+                <div class="card-icon">🏠</div>
+                <h2 class="card-title">Home Decoration</h2>
+                <p class="card-description">Discover modern home decoration trends, color schemes, and layout ideas to create a beautiful and functional living space.</p>
+                <a href="https://www.houzz.com/" class="card-link" target="_blank">Explore Ideas →</a>
+            </div>
+            
+            <div class="content-card">
+                <div class="card-icon">🔨</div>
+                <h2 class="card-title">DIY Projects</h2>
+                <p class="card-description">Step-by-step guides for furniture restoration, wall art creation, and custom home accessories that add personality to your space.</p>
+                <a href="https://www.instructables.com/" class="card-link" target="_blank">Start Building →</a>
+            </div>
+            
+            <div class="content-card">
+                <div class="card-icon">🎨</div>
+                <h2 class="card-title">Creative Crafts</h2>
+                <p class="card-description">Learn various crafting techniques including painting, sewing, and upcycling to create unique home decor items.</p>
+                <a href="https://www.craftsy.com/" class="card-link" target="_blank">Get Crafty →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inspiration Section -->
+    <section class="inspiration-section">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2rem; margin-bottom: 40px; color: #1e293b;">Popular DIY Categories</h2>
+            <div class="inspiration-grid">
+                <div class="inspiration-item">
+                    <div class="inspiration-icon">🪑</div>
+                    <h3 class="inspiration-title">Furniture</h3>
+                    <p class="inspiration-description">Build and restore furniture pieces</p>
+                </div>
+                
+                <div class="inspiration-item">
+                    <div class="inspiration-icon">🖼️</div>
+                    <h3 class="inspiration-title">Wall Art</h3>
+                    <p class="inspiration-description">Create stunning wall decorations</p>
+                </div>
+                
+                <div class="inspiration-item">
+                    <div class="inspiration-icon">💡</div>
+                    <h3 class="inspiration-title">Lighting</h3>
+                    <p class="inspiration-description">DIY lamps and light fixtures</p>
+                </div>
+                
+                <div class="inspiration-item">
+                    <div class="inspiration-icon">🌿</div>
+                    <h3 class="inspiration-title">Garden</h3>
+                    <p class="inspiration-description">Outdoor DIY projects</p>
+                </div>
+                
+                <div class="inspiration-item">
+                    <div class="inspiration-icon">🧵</div>
+                    <h3 class="inspiration-title">Textiles</h3>
+                    <p class="inspiration-description">Sewing and fabric crafts</p>
+                </div>
+                
+                <div class="inspiration-item">
+                    <div class="inspiration-icon">🔧</div>
+                    <h3 class="inspiration-title">Repairs</h3>
+                    <p class="inspiration-description">Fix and maintain home items</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <h3>Trend Hub</h3>
+                <p>Your gateway to understanding what matters to people worldwide</p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Trend Hub. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
