@@ -3,8 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trend Hub - Discover What's Trending Worldwide</title>
-    <meta name="description" content="Explore the most talked-about topics and stay ahead of the curve with insights that matter to people around the globe">
+    <title>Trend Hub - Your Gateway to Global Trends</title>
+    <meta name="description" content="Discover what matters to people worldwide. Explore trending topics in finance, health, tech, entertainment, and more.">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4XL141Z539"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-4XL141Z539');
+    </script>
+    
+    <!-- Statcounter (대안) -->
+    <!--
+    <script type="text/javascript">
+        var sc_project=YOUR_PROJECT_ID;
+        var sc_invisible=1;
+        var sc_security="YOUR_SECURITY_CODE";
+    </script>
+    <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
+    <noscript><div class="statcounter"><a title="web analytics" href="https://statcounter.com/" target="_blank"><img class="statcounter" src="https://c.statcounter.com/YOUR_PROJECT_ID/0/YOUR_SECURITY_CODE/1/" alt="web analytics" referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+    -->
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -45,6 +66,10 @@
             <div class="footer-content">
                 <h3>Trend Hub</h3>
                 <p>Your gateway to understanding what matters to people worldwide</p>
+                <!-- 방문자 카운터 -->
+                <div class="visitor-counter">
+                    <span>👥 방문자: <span id="visitorCount">로딩중...</span></span>
+                </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 Trend Hub. All Rights Reserved.</p>
@@ -53,5 +78,19 @@
     </footer>
 
     <script src="script.js"></script>
+    
+    <!-- 간단한 방문자 카운터 스크립트 -->
+    <script>
+        // 로컬 스토리지를 사용한 간단한 방문자 카운터
+        function updateVisitorCount() {
+            let count = localStorage.getItem('visitorCount') || 0;
+            count = parseInt(count) + 1;
+            localStorage.setItem('visitorCount', count);
+            document.getElementById('visitorCount').textContent = count.toLocaleString();
+        }
+        
+        // 페이지 로드 시 방문자 수 업데이트
+        updateVisitorCount();
+    </script>
 </body>
 </html>

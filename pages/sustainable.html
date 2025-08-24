@@ -4,135 +4,297 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sustainable Living - Trend Hub</title>
-    <meta name="description" content="Learn how to live a more eco-friendly lifestyle with zero-waste tips, sustainable living practices, and environmental consciousness.">
+    <meta name="description" content="Discover eco-friendly lifestyle tips, sustainable products, and green living practices for a better planet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/common.css">
-    <link rel="stylesheet" href="../css/page-specific.css">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .page-header {
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            color: white;
+            padding: 80px 0 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/><circle cx="10" cy="60" r="0.5" fill="white" opacity="0.1"/><circle cx="90" cy="40" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .page-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .page-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .content-section {
+            padding: 60px 0;
+            background: #f8fafc;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .content-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 15px;
+        }
+        
+        .card-description {
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .card-link {
+            color: #16a34a;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s ease;
+        }
+        
+        .card-link:hover {
+            color: #15803d;
+        }
+        
+        .inspiration-section {
+            background: white;
+            padding: 60px 0;
+        }
+        
+        .inspiration-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .inspiration-item {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        
+        .inspiration-item:hover {
+            background: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        
+        .inspiration-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+            margin: 0 auto 15px;
+        }
+        
+        .inspiration-title {
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 10px;
+        }
+        
+        .inspiration-description {
+            color: #64748b;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+        
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .page-subtitle {
+                font-size: 1rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 0 16px;
+            }
+            
+            .inspiration-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 15px;
+                padding: 0 16px;
+            }
+            
+            .back-button {
+                top: 15px;
+                left: 15px;
+                padding: 8px 16px;
+                font-size: 0.875rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="sticky-header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <a href="../index.html">
-                        <h1>Trend Hub</h1>
-                    </a>
-                </div>
-                <nav class="main-nav">
-                    <a href="../index.html">← Back to Home</a>
-                </nav>
-            </div>
-        </div>
+    <!-- Page Header -->
+    <header class="page-header">
+        <a href="../index.html" class="back-button">← Back to Home</a>
+        <h1 class="page-title">Sustainable Living</h1>
+        <p class="page-subtitle">Discover eco-friendly lifestyle tips, sustainable products, and green living practices for a better planet</p>
     </header>
 
-    <!-- Hero Section -->
-    <section class="page-hero sustainable-hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="category-badge">Sustainable Living</div>
-                <h1 class="hero-title">Sustainable Living</h1>
-                <p class="hero-subtitle">Make a positive impact on the planet with eco-friendly lifestyle choices and sustainable practices</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Content Section -->
+    <!-- Main Content -->
     <section class="content-section">
-        <div class="container">
-            <div class="content-grid">
-                <!-- Main Content -->
-                <div class="main-content">
-                    <article class="featured-article">
-                        <h2>Zero-Waste Living: A Beginner's Guide</h2>
-                        <div class="article-meta">
-                            <span class="date">January 15, 2025</span>
-                            <span class="read-time">5 min read</span>
-                        </div>
-                        <p>Start your journey toward a zero-waste lifestyle with these practical steps and tips...</p>
-                        <div class="article-content">
-                            <h3>1. Reduce Single-Use Items</h3>
-                            <p>Replace disposable products with reusable alternatives that last longer and reduce waste.</p>
-                            
-                            <h3>2. Composting Basics</h3>
-                            <p>Turn kitchen scraps and yard waste into nutrient-rich soil for your garden.</p>
-                            
-                            <h3>3. Sustainable Shopping</h3>
-                            <p>Choose products with minimal packaging and support eco-friendly brands.</p>
-                        </div>
-                    </article>
-
-                    <article class="article">
-                        <h2>Eco-Friendly Home Improvements</h2>
-                        <div class="article-meta">
-                            <span class="date">January 12, 2025</span>
-                            <span class="read-time">4 min read</span>
-                        </div>
-                        <p>Transform your home into an environmentally conscious space...</p>
-                    </article>
-
-                    <article class="article">
-                        <h2>Climate-Conscious Food Choices</h2>
-                        <div class="article-meta">
-                            <span class="date">January 10, 2025</span>
-                            <span class="read-time">6 min read</span>
-                        </div>
-                        <p>How your food choices impact the environment and sustainable alternatives...</p>
-                    </article>
-                </div>
-
-                <!-- Sidebar -->
-                <aside class="sidebar">
-                    <div class="widget trending-topics">
-                        <h3>Trending in Sustainability</h3>
-                        <ul>
-                            <li><a href="#">Circular Economy</a></li>
-                            <li><a href="#">Renewable Energy</a></li>
-                            <li><a href="#">Biodiversity Protection</a></li>
-                            <li><a href="#">Climate Action</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="widget resources">
-                        <h3>Sustainability Resources</h3>
-                        <ul>
-                            <li><a href="https://www.treehugger.com/" target="_blank">Treehugger</a></li>
-                            <li><a href="https://www.earth911.com/" target="_blank">Earth911</a></li>
-                            <li><a href="https://www.greenpeace.org/" target="_blank">Greenpeace</a></li>
-                            <li><a href="https://www.wwf.org/" target="_blank">WWF</a></li>
-                        </ul>
-                    </div>
-                </aside>
+        <div class="content-grid">
+            <div class="content-card">
+                <div class="card-icon">🌱</div>
+                <h2 class="card-title">Zero Waste Living</h2>
+                <p class="card-description">Learn practical strategies to reduce waste, minimize plastic use, and adopt a more sustainable lifestyle in your daily routine.</p>
+                <a href="https://zerowastehome.com/" class="card-link" target="_blank">Start Living Zero Waste →</a>
+            </div>
+            
+            <div class="content-card">
+                <div class="card-icon">♻️</div>
+                <h2 class="card-title">Eco-Friendly Products</h2>
+                <p class="card-description">Discover sustainable alternatives for everyday items, from reusable products to biodegradable materials and ethical brands.</p>
+                <a href="https://www.earthhero.com/" class="card-link" target="_blank">Shop Sustainable →</a>
+            </div>
+            
+            <div class="content-card">
+                <div class="card-icon">🏡</div>
+                <h2 class="card-title">Green Home</h2>
+                <p class="card-description">Transform your living space with energy-efficient solutions, natural materials, and sustainable home improvement ideas.</p>
+                <a href="https://www.greenhomeguide.com/" class="card-link" target="_blank">Build Green →</a>
             </div>
         </div>
     </section>
 
-    <!-- Related Topics -->
-    <section class="related-topics">
+    <!-- Inspiration Section -->
+    <section class="inspiration-section">
         <div class="container">
-            <h2>Explore Related Topics</h2>
-            <div class="topics-grid">
-                <a href="diy.html" class="topic-card" data-category="diy">
-                    <div class="topic-icon">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
-                        </svg>
-                    </div>
-                    <h3>DIY & Home Decor</h3>
-                    <p>Home decoration ideas and DIY project guides</p>
-                </a>
-
-                <a href="health.html" class="topic-card" data-category="health">
-                    <div class="topic-icon">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                        </svg>
-                    </div>
-                    <h3>Health & Fitness</h3>
-                    <p>Workout routines, nutrition information, and wellness lifestyle tips</p>
-                </a>
+            <h2 style="text-align: center; font-size: 2rem; margin-bottom: 40px; color: #1e293b;">Sustainability Categories</h2>
+            <div class="inspiration-grid">
+                <div class="inspiration-item">
+                    <div class="inspiration-icon">🌿</div>
+                    <h3 class="inspiration-title">Organic</h3>
+                    <p class="inspiration-description">Natural and chemical-free</p>
+                </div>
+                
+                <div class="inspiration-item">
+                    <div class="inspiration-icon">💧</div>
+                    <h3 class="inspiration-title">Water Conservation</h3>
+                    <p class="inspiration-description">Save water resources</p>
+                </div>
+                
+                <div class="inspiration-item">
+                    <div class="inspiration-icon">⚡</div>
+                    <h3 class="inspiration-title">Renewable Energy</h3>
+                    <p class="inspiration-description">Solar and wind power</p>
+                </div>
+                
+                <div class="inspiration-item">
+                    <div class="inspiration-icon">🚲</div>
+                    <h3 class="inspiration-title">Transportation</h3>
+                    <p class="inspiration-description">Eco-friendly travel</p>
+                </div>
+                
+                <div class="inspiration-item">
+                    <div class="inspiration-icon">🌍</div>
+                    <h3 class="inspiration-title">Climate Action</h3>
+                    <p class="inspiration-description">Reduce carbon footprint</p>
+                </div>
+                
+                <div class="inspiration-item">
+                    <div class="inspiration-icon">🔄</div>
+                    <h3 class="inspiration-title">Circular Economy</h3>
+                    <p class="inspiration-description">Reuse and recycle</p>
+                </div>
             </div>
         </div>
     </section>
@@ -149,9 +311,6 @@
             </div>
         </div>
     </footer>
-
-    <script src="../js/common.js"></script>
-    <script src="../js/page-content.js"></script>
 </body>
 </html>
 

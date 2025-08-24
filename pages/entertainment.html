@@ -4,136 +4,297 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movies & OTT - Trend Hub</title>
-    <meta name="description" content="Discover the latest movie reviews, streaming recommendations, and entertainment news. Stay updated with what's trending in the world of entertainment.">
+    <meta name="description" content="Discover the latest movies, TV shows, and streaming content with expert reviews and recommendations">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/common.css">
-    <link rel="stylesheet" href="../css/page-specific.css">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .page-header {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            color: white;
+            padding: 80px 0 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/><circle cx="10" cy="60" r="0.5" fill="white" opacity="0.1"/><circle cx="90" cy="40" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .page-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .page-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .content-section {
+            padding: 60px 0;
+            background: #f8fafc;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .content-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 15px;
+        }
+        
+        .card-description {
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .card-link {
+            color: #7c3aed;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s ease;
+        }
+        
+        .card-link:hover {
+            color: #6d28d9;
+        }
+        
+        .inspiration-section {
+            background: white;
+            padding: 60px 0;
+        }
+        
+        .inspiration-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .inspiration-item {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        
+        .inspiration-item:hover {
+            background: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        
+        .inspiration-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+            margin: 0 auto 15px;
+        }
+        
+        .inspiration-title {
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 10px;
+        }
+        
+        .inspiration-description {
+            color: #64748b;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+        
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .page-subtitle {
+                font-size: 1rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 0 16px;
+            }
+            
+            .inspiration-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 15px;
+                padding: 0 16px;
+            }
+            
+            .back-button {
+                top: 15px;
+                left: 15px;
+                padding: 8px 16px;
+                font-size: 0.875rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="sticky-header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <a href="../index.html">
-                        <h1>Trend Hub</h1>
-                    </a>
-                </div>
-                <nav class="main-nav">
-                    <a href="../index.html">← Back to Home</a>
-                </nav>
-            </div>
-        </div>
+    <!-- Page Header -->
+    <header class="page-header">
+        <a href="../index.html" class="back-button">← Back to Home</a>
+        <h1 class="page-title">Movies & OTT</h1>
+        <p class="page-subtitle">Discover the latest movies, TV shows, and streaming content with expert reviews and recommendations</p>
     </header>
 
-    <!-- Hero Section -->
-    <section class="page-hero entertainment-hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="category-badge">Movies & OTT</div>
-                <h1 class="hero-title">Movies & OTT</h1>
-                <p class="hero-subtitle">Your ultimate guide to the latest movies, TV shows, and streaming content</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Content Section -->
+    <!-- Main Content -->
     <section class="content-section">
-        <div class="container">
-            <div class="content-grid">
-                <!-- Main Content -->
-                <div class="main-content">
-                    <article class="featured-article">
-                        <h2>Must-Watch Movies of 2025</h2>
-                        <div class="article-meta">
-                            <span class="date">January 15, 2025</span>
-                            <span class="read-time">5 min read</span>
-                        </div>
-                        <p>From blockbuster action films to indie gems, here are the most anticipated movies hitting theaters and streaming platforms in 2025...</p>
-                        <div class="article-content">
-                            <h3>1. Blockbuster Spectacles</h3>
-                            <p>Big-budget films with stunning visual effects and star-studded casts that promise epic entertainment.</p>
-                            
-                            <h3>2. Award Season Contenders</h3>
-                            <p>Critically acclaimed films that showcase exceptional storytelling and performances.</p>
-                            
-                            <h3>3. Hidden Gems</h3>
-                            <p>Under-the-radar films that deserve your attention and offer unique perspectives.</p>
-                        </div>
-                    </article>
-
-                    <article class="article">
-                        <h2>Best TV Shows to Binge-Watch</h2>
-                        <div class="article-meta">
-                            <span class="date">January 12, 2025</span>
-                            <span class="read-time">4 min read</span>
-                        </div>
-                        <p>Discover compelling series across all genres that will keep you glued to your screen...</p>
-                    </article>
-
-                    <article class="article">
-                        <h2>Streaming Platform Comparison</h2>
-                        <div class="article-meta">
-                            <span class="date">January 10, 2025</span>
-                            <span class="read-time">6 min read</span>
-                        </div>
-                        <p>Which streaming service offers the best value? We break down the pros and cons...</p>
-                    </article>
-                </div>
-
-                <!-- Sidebar -->
-                <aside class="sidebar">
-                    <div class="widget trending-topics">
-                        <h3>Trending in Entertainment</h3>
-                        <ul>
-                            <li><a href="#">New Releases</a></li>
-                            <li><a href="#">Award Shows</a></li>
-                            <li><a href="#">Celebrity News</a></li>
-                            <li><a href="#">Behind the Scenes</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="widget resources">
-                        <h3>Entertainment Resources</h3>
-                        <ul>
-                            <li><a href="https://www.imdb.com/" target="_blank">IMDb</a></li>
-                            <li><a href="https://www.rottentomatoes.com/" target="_blank">Rotten Tomatoes</a></li>
-                            <li><a href="https://www.metacritic.com/" target="_blank">Metacritic</a></li>
-                            <li><a href="https://www.empireonline.com/" target="_blank">Empire</a></li>
-                        </ul>
-                    </div>
-                </aside>
+        <div class="content-grid">
+            <div class="content-card">
+                <div class="card-icon">🎬</div>
+                <h2 class="card-title">Movie Reviews</h2>
+                <p class="card-description">Get expert insights on the latest blockbusters, indie films, and international cinema with detailed reviews and ratings.</p>
+                <a href="https://www.imdb.com/" class="card-link" target="_blank">Read Reviews →</a>
+            </div>
+            
+            <div class="content-card">
+                <div class="card-icon">📺</div>
+                <h2 class="card-title">TV Shows</h2>
+                <p class="card-description">Explore trending TV series, binge-worthy shows, and hidden gems across all streaming platforms and networks.</p>
+                <a href="https://www.rottentomatoes.com/" class="card-link" target="_blank">Discover Shows →</a>
+            </div>
+            
+            <div class="content-card">
+                <div class="card-icon">🎭</div>
+                <h2 class="card-title">Streaming Guide</h2>
+                <p class="card-description">Navigate the world of streaming with recommendations for Netflix, Disney+, Amazon Prime, and other platforms.</p>
+                <a href="https://www.justwatch.com/" class="card-link" target="_blank">Find Content →</a>
             </div>
         </div>
     </section>
 
-    <!-- Related Topics -->
-    <section class="related-topics">
+    <!-- Inspiration Section -->
+    <section class="inspiration-section">
         <div class="container">
-            <h2>Explore Related Topics</h2>
-            <div class="topics-grid">
-                <a href="tech.html" class="topic-card" data-category="tech">
-                    <div class="topic-icon">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                        </svg>
-                    </div>
-                    <h3>Tech & Gadget Reviews</h3>
-                    <p>Latest smartphone, laptop, and wearable device reviews</p>
-                </a>
-
-                <a href="travel.html" class="topic-card" data-category="travel">
-                    <div class="topic-icon">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                        </svg>
-                    </div>
-                    <h3>Themed Travel Guides</h3>
-                    <p>Food tours, cultural trips, adventure travel, and unique travel experiences</p>
-                </a>
+            <h2 style="text-align: center; font-size: 2rem; margin-bottom: 40px; color: #1e293b;">Entertainment Categories</h2>
+            <div class="inspiration-grid">
+                <div class="inspiration-item">
+                    <div class="inspiration-icon">🎭</div>
+                    <h3 class="inspiration-title">Drama</h3>
+                    <p class="inspiration-description">Emotional storytelling</p>
+                </div>
+                
+                <div class="inspiration-item">
+                    <div class="inspiration-icon">😂</div>
+                    <h3 class="inspiration-title">Comedy</h3>
+                    <p class="inspiration-description">Laugh-out-loud fun</p>
+                </div>
+                
+                <div class="inspiration-item">
+                    <div class="inspiration-icon">🚀</div>
+                    <h3 class="inspiration-title">Action</h3>
+                    <p class="inspiration-description">Thrilling adventures</p>
+                </div>
+                
+                <div class="inspiration-item">
+                    <div class="inspiration-icon">💕</div>
+                    <h3 class="inspiration-title">Romance</h3>
+                    <p class="inspiration-description">Love stories</p>
+                </div>
+                
+                <div class="inspiration-item">
+                    <div class="inspiration-icon">🔍</div>
+                    <h3 class="inspiration-title">Mystery</h3>
+                    <p class="inspiration-description">Suspense and intrigue</p>
+                </div>
+                
+                <div class="inspiration-item">
+                    <div class="inspiration-icon">🌟</div>
+                    <h3 class="inspiration-title">Documentary</h3>
+                    <p class="inspiration-description">Real-life stories</p>
+                </div>
             </div>
         </div>
     </section>
@@ -150,9 +311,6 @@
             </div>
         </div>
     </footer>
-
-    <script src="../js/common.js"></script>
-    <script src="../js/page-content.js"></script>
 </body>
 </html>
 

@@ -4,135 +4,297 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tech & Gadget Reviews - Trend Hub</title>
-    <meta name="description" content="Stay updated with the latest technology trends, gadget reviews, and tech innovations. Get expert insights on smartphones, laptops, and wearable devices.">
+    <meta name="description" content="Stay ahead with the latest smartphone reviews, laptop comparisons, and cutting-edge technology insights">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/common.css">
-    <link rel="stylesheet" href="../css/page-specific.css">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .page-header {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+            padding: 80px 0 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/><circle cx="10" cy="60" r="0.5" fill="white" opacity="0.1"/><circle cx="90" cy="40" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .page-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .page-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .content-section {
+            padding: 60px 0;
+            background: #f8fafc;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .content-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 15px;
+        }
+        
+        .card-description {
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .card-link {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s ease;
+        }
+        
+        .card-link:hover {
+            color: #1d4ed8;
+        }
+        
+        .inspiration-section {
+            background: white;
+            padding: 60px 0;
+        }
+        
+        .inspiration-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .inspiration-item {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        
+        .inspiration-item:hover {
+            background: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        
+        .inspiration-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+            margin: 0 auto 15px;
+        }
+        
+        .inspiration-title {
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 10px;
+        }
+        
+        .inspiration-description {
+            color: #64748b;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+        
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .page-subtitle {
+                font-size: 1rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 0 16px;
+            }
+            
+            .inspiration-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 15px;
+                padding: 0 16px;
+            }
+            
+            .back-button {
+                top: 15px;
+                left: 15px;
+                padding: 8px 16px;
+                font-size: 0.875rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="sticky-header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <a href="../index.html">
-                        <h1>Trend Hub</h1>
-                    </a>
-                </div>
-                <nav class="main-nav">
-                    <a href="../index.html">← Back to Home</a>
-                </nav>
-            </div>
-        </div>
+    <!-- Page Header -->
+    <header class="page-header">
+        <a href="../index.html" class="back-button">← Back to Home</a>
+        <h1 class="page-title">Tech & Gadget Reviews</h1>
+        <p class="page-subtitle">Stay ahead with the latest smartphone reviews, laptop comparisons, and cutting-edge technology insights</p>
     </header>
 
-    <!-- Hero Section -->
-    <section class="page-hero tech-hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="category-badge">Tech & Gadgets</div>
-                <h1 class="hero-title">Tech & Gadget Reviews</h1>
-                <p class="hero-subtitle">Discover the latest innovations and get expert reviews on cutting-edge technology</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Content Section -->
+    <!-- Main Content -->
     <section class="content-section">
-        <div class="container">
-            <div class="content-grid">
-                <!-- Main Content -->
-                <div class="main-content">
-                    <article class="featured-article">
-                        <h2>Best Smartphones of 2025: A Complete Guide</h2>
-                        <div class="article-meta">
-                            <span class="date">January 15, 2025</span>
-                            <span class="read-time">6 min read</span>
-                        </div>
-                        <p>From flagship devices to budget-friendly options, here's everything you need to know about the best smartphones available in 2025...</p>
-                        <div class="article-content">
-                            <h3>1. Flagship Smartphones</h3>
-                            <p>Premium devices with cutting-edge features, advanced cameras, and powerful processors for power users.</p>
-                            
-                            <h3>2. Mid-Range Champions</h3>
-                            <p>Excellent value for money with great performance and features at reasonable prices.</p>
-                            
-                            <h3>3. Budget-Friendly Options</h3>
-                            <p>Surprisingly capable devices that offer essential features without breaking the bank.</p>
-                        </div>
-                    </article>
-
-                    <article class="article">
-                        <h2>Laptop Buying Guide 2025</h2>
-                        <div class="article-meta">
-                            <span class="date">January 12, 2025</span>
-                            <span class="read-time">5 min read</span>
-                        </div>
-                        <p>Whether you're a student, professional, or gamer, find the perfect laptop for your needs...</p>
-                    </article>
-
-                    <article class="article">
-                        <h2>Wearable Technology Trends</h2>
-                        <div class="article-meta">
-                            <span class="date">January 10, 2025</span>
-                            <span class="read-time">4 min read</span>
-                        </div>
-                        <p>From smartwatches to fitness trackers, explore the future of wearable devices...</p>
-                    </article>
-                </div>
-
-                <!-- Sidebar -->
-                <aside class="sidebar">
-                    <div class="widget trending-topics">
-                        <h3>Trending in Tech</h3>
-                        <ul>
-                            <li><a href="#">AI Integration</a></li>
-                            <li><a href="#">5G Technology</a></li>
-                            <li><a href="#">Foldable Devices</a></li>
-                            <li><a href="#">Sustainable Tech</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="widget resources">
-                        <h3>Tech Resources</h3>
-                        <ul>
-                            <li><a href="https://www.theverge.com/" target="_blank">The Verge</a></li>
-                            <li><a href="https://www.techcrunch.com/" target="_blank">TechCrunch</a></li>
-                            <li><a href="https://www.wired.com/" target="_blank">Wired</a></li>
-                            <li><a href="https://www.engadget.com/" target="_blank">Engadget</a></li>
-                        </ul>
-                    </div>
-                </aside>
+        <div class="content-grid">
+            <div class="content-card">
+                <div class="card-icon">📱</div>
+                <h2 class="card-title">Smartphones</h2>
+                <p class="card-description">Comprehensive reviews of the latest smartphones, comparing features, performance, and value for money.</p>
+                <a href="https://www.theverge.com/" class="card-link" target="_blank">Read Reviews →</a>
+            </div>
+            
+            <div class="content-card">
+                <div class="card-icon">💻</div>
+                <h2 class="card-title">Laptops & PCs</h2>
+                <p class="card-description">Expert analysis of laptops, desktops, and workstations for gaming, productivity, and creative work.</p>
+                <a href="https://www.notebookcheck.net/" class="card-link" target="_blank">Compare Specs →</a>
+            </div>
+            
+            <div class="content-card">
+                <div class="card-icon">⌚</div>
+                <h2 class="card-title">Wearables</h2>
+                <p class="card-description">Smartwatch reviews, fitness tracker comparisons, and wearable technology insights for health and lifestyle.</p>
+                <a href="https://www.wareable.com/" class="card-link" target="_blank">Explore Wearables →</a>
             </div>
         </div>
     </section>
 
-    <!-- Related Topics -->
-    <section class="related-topics">
+    <!-- Inspiration Section -->
+    <section class="inspiration-section">
         <div class="container">
-            <h2>Explore Related Topics</h2>
-            <div class="topics-grid">
-                <a href="finance.html" class="topic-card" data-category="finance">
-                    <div class="topic-icon">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
-                        </svg>
-                    </div>
-                    <h3>Personal Finance & Investing</h3>
-                    <p>Investment strategies for stocks, real estate, cryptocurrency, and fintech information</p>
-                </a>
-
-                <a href="productivity.html" class="topic-card" data-category="productivity">
-                    <div class="topic-icon">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-                        </svg>
-                    </div>
-                    <h3>Self-Improvement & Productivity</h3>
-                    <p>Habit formation, time management, and goal achievement strategies</p>
-                </a>
+            <h2 style="text-align: center; font-size: 2rem; margin-bottom: 40px; color: #1e293b;">Tech Categories</h2>
+            <div class="inspiration-grid">
+                <div class="inspiration-item">
+                    <div class="inspiration-icon">🎮</div>
+                    <h3 class="inspiration-title">Gaming</h3>
+                    <p class="inspiration-description">Gaming hardware and accessories</p>
+                </div>
+                
+                <div class="inspiration-item">
+                    <div class="inspiration-icon">📷</div>
+                    <h3 class="inspiration-title">Cameras</h3>
+                    <p class="inspiration-description">DSLR and mirrorless cameras</p>
+                </div>
+                
+                <div class="inspiration-item">
+                    <div class="inspiration-icon">🔊</div>
+                    <h3 class="inspiration-title">Audio</h3>
+                    <p class="inspiration-description">Headphones and speakers</p>
+                </div>
+                
+                <div class="inspiration-item">
+                    <div class="inspiration-icon">🏠</div>
+                    <h3 class="inspiration-title">Smart Home</h3>
+                    <p class="inspiration-description">IoT and automation</p>
+                </div>
+                
+                <div class="inspiration-item">
+                    <div class="inspiration-icon">🚗</div>
+                    <h3 class="inspiration-title">Automotive</h3>
+                    <p class="inspiration-description">Car tech and EVs</p>
+                </div>
+                
+                <div class="inspiration-item">
+                    <div class="inspiration-icon">🤖</div>
+                    <h3 class="inspiration-title">AI & ML</h3>
+                    <p class="inspiration-description">Artificial intelligence</p>
+                </div>
             </div>
         </div>
     </section>
@@ -149,9 +311,6 @@
             </div>
         </div>
     </footer>
-
-    <script src="../js/common.js"></script>
-    <script src="../js/page-content.js"></script>
 </body>
 </html>
 

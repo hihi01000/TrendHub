@@ -635,3 +635,34 @@ body {
         color: #333 !important;
     }
 }
+
+/* 방문자 카운터 스타일 */
+.visitor-counter {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    display: inline-block;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.visitor-counter span {
+    font-weight: 500;
+}
+
+#visitorCount {
+    font-weight: 700;
+    color: #fbbf24;
+}
+
+/* 반응형 방문자 카운터 */
+@media (max-width: 768px) {
+    .visitor-counter {
+        font-size: 0.8rem;
+        padding: 8px 16px;
+        margin-top: 10px;
+    }
+}
