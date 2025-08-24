@@ -751,3 +751,42 @@ body {
         min-width: 200px;
     }
 }
+
+/* 방문자 카운터 섹션 스타일 */
+.visitor-counter-section {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.05) 100%);
+    padding: 40px 0;
+    margin-top: 60px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.visitor-counter-section .main-visitor-counter {
+    margin-top: 0;
+}
+
+.visitor-counter-section .counter-item {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.visitor-counter-section .counter-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* 반응형 방문자 카운터 섹션 */
+@media (max-width: 768px) {
+    .visitor-counter-section {
+        padding: 30px 0;
+        margin-top: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .visitor-counter-section {
+        padding: 25px 0;
+        margin-top: 30px;
+    }
+}
